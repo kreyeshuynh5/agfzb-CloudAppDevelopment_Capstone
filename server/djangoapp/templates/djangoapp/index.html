@@ -14,12 +14,53 @@
 </head>
 
     <body>
-    <!-- Remove this line the first time you edit this file -->
-     This is the index page of your Django app!
     <!--Add a nav bar here -->
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="/djangoapp">Dealership Review</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/djangoapp/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/djangoapp/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/djangoapp/contact/">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    
+      <div class="container">
+        <h1>Welcome to Dealership Review</h1>
+        <p>Explore and review the best car dealerships in your area.</p>
+        
+        <h2>Latest Reviews</h2>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Car Dealership XYZ</h5>
+                <p class="card-text">Great customer service and a wide selection of vehicles.</p>
+                <p class="card-text">Rating: 4.5/5</p>
+            </div>
+        </div>
+        
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Car Dealership ABC</h5>
+                <p class="card-text">Friendly staff and competitive prices.</p>
+                <p class="card-text">Rating: 4/5</p>
+            </div>
+        </div>
+        
+        <!-- Add more reviews here -->
+    </div>
+    
     <!--Add a dealer table here -->
-
+      
     </body>
 
 </html>
