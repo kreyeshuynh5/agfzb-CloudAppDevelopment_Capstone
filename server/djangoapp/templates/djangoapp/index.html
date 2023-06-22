@@ -64,27 +64,51 @@
         <h1>Welcome to Dealership Review</h1>
         <p>Explore and review the best car dealerships in your area.</p>
         
-        <h2>Latest Reviews</h2>
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Car Dealership XYZ</h5>
-                <p class="card-text">Great customer service and a wide selection of vehicles.</p>
-                <p class="card-text">Rating: 4.5/5</p>
-            </div>
-        </div>
-        
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Car Dealership ABC</h5>
-                <p class="card-text">Friendly staff and competitive prices.</p>
-                <p class="card-text">Rating: 4/5</p>
-            </div>
         </div>
         
         <!-- Add more reviews here -->
     </div>
     
     <!--Add a dealer table here -->
+    <div class="container-fluid">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        
+        <main class="container"></main>
+          <table class="table" id="table" data-filter-control="true">
+            <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Dealer Name</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Zip</th>
+                  <th data-field="state" data-filter-control="select">State</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dealer in dealership_list %}
+                    <tr>
+                        <td>{{dealer.id}}</td>
+                        <td><a href="{% url 'djangoapp:dealer_details' dealer.id %}">{{dealer.full_name}}</a></td>
+                        <td>{{dealer.city}}</td>
+                        <td>{{dealer.address}}</td>
+                        <td>{{dealer.zip}}</td>
+                        <td>{{dealer.st}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+          </body>
+          <script>
+            $(function() {
+                $('#table').bootstrapTable()
+            })
+          </script>
       
     </body>
 

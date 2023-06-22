@@ -93,12 +93,11 @@ def registration_request(request):
 def get_dealerships(request):
     if request.method == "GET":
         url = "https://us-south.functions.appdomain.cloud/api/v1/web/9996bbe6-716b-4a3f-a09f-ac9f1ca62816/default/get-dealership"
-        # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
-        # Concat all dealer's short name
-        dealer_names = ' '.join([dealer.short_name for dealer in dealerships])
-        # Return a list of dealer short name
-        return HttpResponse(dealer_names)
+        context = {}
+        context["dealership_list"] = dealerships
+        return render(request, 'djangoapp/index.html', context)
+
 
 
 # Create a `get_dealer_details` view to render the reviews of a dealer
@@ -124,7 +123,7 @@ def get_dealer_details(request, id):
 # ...
 def add_review(request, id):
     context = {}
-    dealer_url = "https://eu-gb.functions.appdomain.cloud/api/v1/web/Tamara_United%20Kingdom/DealershipProject/Get%20all%20dealerships"
+    dealer_url = "https://us-south.functions.appdomain.cloud/api/v1/web/9996bbe6-716b-4a3f-a09f-ac9f1ca62816/default/get-dealership"
     dealer = get_dealer_by_id_from_cf(dealer_url, id=id)
     context["dealer"] = dealer
     if request.method == 'GET':
